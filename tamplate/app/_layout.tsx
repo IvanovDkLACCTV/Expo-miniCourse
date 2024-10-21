@@ -6,12 +6,6 @@ LogBox.ignoreAllLogs(true);
 
 export default function RootLayout() {
   return (
-<<<<<<< HEAD
-    <Stack>
-      <Stack.Screen name="index" options={{ headerTitle: "Sticker Smash" }} />
-      <Stack.Screen name="about" options={{ headerTitle: "About" }} />
-    </Stack>
-=======
     <>
       <StatusBar style="light" />
       <Stack>
@@ -24,6 +18,5 @@ export default function RootLayout() {
         <Stack.Screen name="+not-found" options={{ headerShown: false }} />
       </Stack>
     </>
->>>>>>> 69075147b7ec145a988d5f0ddd35563379254912
   );
 }
