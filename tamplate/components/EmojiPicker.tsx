@@ -47,7 +47,7 @@ const style = StyleSheet.create({
   },
   modalContent: {
     backgroundColor: '#25292e',
-    height: '25%',
+    height: '36%',
     width: '100%',
     position: 'absolute',
     borderTopLeftRadius: 18,
