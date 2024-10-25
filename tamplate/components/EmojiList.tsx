@@ -20,7 +20,7 @@ export default function EmojiList({ onSelect, onCloseModal }: Props) {
 
   return (
     <FlatList
-      //horizontal
+      horizontal={true}
       showsHorizontalScrollIndicator={Platform.OS === 'web'}
       data={emoji}
       contentContainerStyle={styles.listContainer}
@@ -46,12 +46,14 @@ const styles = StyleSheet.create({
   listContainer: {
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
-    justifyContent: 'center',
+    paddingHorizontal: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   image: {
     width: 100,
     height: 100,
-    margin: 10,
+    margin: 20,
   },
 });
