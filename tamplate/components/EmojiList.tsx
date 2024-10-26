@@ -1,6 +1,6 @@
 //outer components
 import { useState } from 'react';
-import { FlatList, StyleSheet, Platform, Pressable } from 'react-native';
+import { FlatList, StyleSheet, Platform, Pressable, View } from 'react-native';
 import { Image } from 'expo-image';
 
 type Props = {
@@ -19,41 +19,46 @@ export default function EmojiList({ onSelect, onCloseModal }: Props) {
   ]);
 
   return (
-    <FlatList
-      //horizontal={true}
-      showsHorizontalScrollIndicator={Platform.OS === 'web'}
-      data={emoji}
-      contentContainerStyle={styles.listContainer}
-      renderItem={({ item, index }) => (
-        <Pressable
-          onPress={() => {
-            onSelect(item);
-            onCloseModal();
-          }}>
-          <Image
-            source={item}
-            key={index}
-            style={styles.image}
-          />
-        </Pressable>
-      )}
-      numColumns={3}
-    />
+    <View style={styles.container}>
+      <FlatList
+        horizontal={true}
+        showsHorizontalScrollIndicator={Platform.OS === 'web'}
+        data={emoji}
+        contentContainerStyle={styles.listContainer}
+        renderItem={({ item, index }) => (
+          <Pressable
+            onPress={() => {
+              onSelect(item);
+              onCloseModal();
+            }}>
+            <Image
+              source={item}
+              key={index}
+              style={styles.image}
+            />
+          </Pressable>
+        )}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: '100%',
+  },
   listContainer: {
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
-    paddingHorizontal: 20,
-    //flexDirection: 'row',
+    paddingVertical: 20,
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   image: {
     width: 100,
     height: 100,
-    margin: 10,
+    marginHorizontal: 10,
   },
 });
