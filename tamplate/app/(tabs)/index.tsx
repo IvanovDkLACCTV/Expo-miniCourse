@@ -56,7 +56,6 @@ export default function Index() {
   };
 
   const onSaveImageAsync = async () => {
-    /* @tutinfo Add the if condition here to check whether the current platform is web or not. */
     if (Platform.OS !== 'web') {
       try {
         const localUri = await captureRef(imageRef, {
@@ -71,9 +70,9 @@ export default function Index() {
       } catch (e) {
         console.log(e);
       }
-      /* @tutinfo Add an else condition to run the logic when the current platform is the web. */
     } else {
       try {
+        // @ts-ignore
         const dataUrl = await domtoimage.toJpeg(imageRef.current, {
           quality: 0.95,
           width: 320,
